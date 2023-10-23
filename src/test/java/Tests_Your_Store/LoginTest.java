@@ -19,11 +19,11 @@ public class LoginTest extends Base {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(100));
 
 
-        By AccountButton = By.className("dropdown");
+        By AccountButton = By.className("dropdown-toggle");
 
-        By AccountLista = By.xpath("//li/ul/li/a[@href='https://opencart.abstracta.us:443/index.php?route=account/login']");
+        By AccountLogin = By.xpath("//a[contains(@href, 'account/login')]");
 
-        By loginCustomer = By.id("account-login");
+
 
 
 
@@ -33,9 +33,6 @@ public class LoginTest extends Base {
 
         AccountButtonElement.click();
 
-        WebElement AccountlistaElement  =  wait.until(ExpectedConditions.elementToBeClickable(AccountLista));
-
-        AccountlistaElement.click();
 
 
         WebElement loginCustomerElement = wait.until(ExpectedConditions.visibilityOfElementLocated(loginCustomer));
