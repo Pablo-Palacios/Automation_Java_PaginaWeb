@@ -1,122 +1,35 @@
-package Proyecto_Your_Store;
+package Tests_Your_Store;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import Page_Your_Store.HomePage;
+import Page_Your_Store.LoginPage;
+import Page_Your_Store.myAccountPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class LoginTest extends Base {
 
     @Test
-    public void login(){
+    public void login() {
+
+        HomePage homePage = new HomePage(getDriver());
+
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        myAccountPage myAccountPage = new myAccountPage(getDriver());
+
 
         getDriver().get("https://opencart.abstracta.us/");
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(100));
 
+        homePage.ingresarLogin();
 
-        By AccountButton = By.className("dropdown-toggle");
+        loginPage.usuarioLogin("pablomartinpalacios27@gmail.com",
+                "12345");
 
-        By AccountLogin = By.xpath("//a[contains(@href, 'account/login')]");
-
-
-
-
-
-
-
-        WebElement AccountButtonElement  =  wait.until(ExpectedConditions.elementToBeClickable(AccountButton));
-
-        AccountButtonElement.click();
-
-
-
-        WebElement loginCustomerElement = wait.until(ExpectedConditions.visibilityOfElementLocated(loginCustomer));
-
-
-
-
-        Assert.assertTrue(loginCustomerElement.isDisplayed());
-
-
-        By loginName = By.id("input-email");
-
-        By loginPassword = By.id("input-password");
-
-        By loginButton = By.xpath("//input[@class='btn btn-primary']");
-
-
-        WebElement loginNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(loginName));
-
-        loginNameElement.sendKeys("pmpmatador@gmail.com");
-
-        WebElement loginPasswordElement = wait.until(ExpectedConditions.visibilityOfElementLocated(loginPassword));
-
-        loginPasswordElement.sendKeys("Pablo1234");
-
-        WebElement loginButtonElement = wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-
-
-
-        loginButtonElement.click();
-
-
-        By myAccount = By.xpath("//div[@id='content']/h2[text() = 'My Account']");
-
-        WebElement myAccountElement = wait.until(ExpectedConditions.visibilityOfElementLocated(myAccount));
-
-        Assert.assertEquals(myAccountElement.getText(), "My Account", "No se inscribio correctamente");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Assert.assertEquals(myAccountPage.getTitulo(), "My Account",
+                "No se logeo correctamente");
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
