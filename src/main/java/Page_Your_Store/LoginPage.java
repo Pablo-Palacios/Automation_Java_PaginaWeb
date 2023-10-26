@@ -22,7 +22,7 @@ public class LoginPage {
 
     By loginButton = By.xpath("//input[@class='btn btn-primary']");
 
-    By alertLogin = By.className("alert alert-danger alert-dismissible");
+    By alertLogin = By.className("alert-dismissible");
 
     By returningBy = By.xpath("//div[@class='well']/h2[text() = 'Returning Customer']");
 
@@ -53,10 +53,10 @@ public class LoginPage {
 
     }
 
-    public String alertErrorLogin(){
+    public boolean alertErrorLogin(){
 
         WebElement alertElement = wait.until(ExpectedConditions.visibilityOfElementLocated(alertLogin));
-        return alertElement.getText();
+        return alertElement.isDisplayed();
 
     }
 

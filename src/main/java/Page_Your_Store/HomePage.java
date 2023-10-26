@@ -24,6 +24,8 @@ public class HomePage {
 
     By AccountLogin = By.xpath("//a[contains(@href, 'account/login')]");
 
+    By registerBy = By.xpath("//a[contains(@href, 'account/register')]");
+
 
 
 
@@ -51,6 +53,18 @@ public class HomePage {
 
         AccountLoginElement.click();
         
+
+    }
+
+    public void Register(){
+
+        WebElement AccountButtonElement  =  wait.until(ExpectedConditions.elementToBeClickable(AccountButton));
+
+        AccountButtonElement.click();
+
+        WebElement registerElement = wait.until(ExpectedConditions.elementToBeClickable(registerBy));
+
+        registerElement.click();
 
     }
 

@@ -1,4 +1,4 @@
-package Proyecto_Your_Store;
+package Tests_Your_Store;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

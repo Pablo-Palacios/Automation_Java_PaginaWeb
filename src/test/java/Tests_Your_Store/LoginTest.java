@@ -32,4 +32,29 @@ public class LoginTest extends Base {
 
     }
 
+
+    @Test
+    public void loginFallido(){
+
+        HomePage homePage = new HomePage(getDriver());
+
+        LoginPage loginPage = new LoginPage(getDriver());
+
+
+
+
+        getDriver().get("https://opencart.abstracta.us/");
+
+
+        homePage.ingresarLogin();
+
+        loginPage.usuarioLogin("pablomartinpalacios27@gmail.com",
+                "1234565");
+
+
+        Assert.assertTrue(loginPage.alertErrorLogin(), "No se encontro el mensaje de alerta");
+
+
+    }
+
 }
