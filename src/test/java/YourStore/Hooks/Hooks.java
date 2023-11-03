@@ -1,19 +1,19 @@
-package Tests_Your_Store;
+package YourStore.Hooks;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
 
 import java.time.Duration;
 
-public class Base {
+public class Hooks {
 
+    private static WebDriver driver;
 
-    private WebDriver driver;
-
-    @BeforeMethod
+    @Before
     public void setUp(){
 
         ChromeOptions options = new ChromeOptions();
@@ -27,43 +27,23 @@ public class Base {
 
         options.setPageLoadTimeout(Duration.ofSeconds(60));
 
-        this.driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
 
 
     }
 
-    public WebDriver getDriver() {
-        return this.driver;
+    public static WebDriver getDriver() {
+        return driver;
     }
 
 
 
-    @AfterMethod
+    @After
     public void close(){
 
-        if (this.driver != null){
-            this.driver.quit();
+        if (driver != null){
+            driver.quit();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

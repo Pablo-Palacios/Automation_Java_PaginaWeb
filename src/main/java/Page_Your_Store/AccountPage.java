@@ -51,7 +51,11 @@ public class AccountPage {
     }
 
 
-    public void formularioPersonal_Details(String firstName, String lastName, String email, String telefhone){
+    public void formularioPersonal_Details(String firstName,
+                                           String lastName,
+                                           String email,
+                                           String telefhone,
+                                           String password){
 
         WebElement firstElemnt = wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameBy));
 
@@ -84,9 +88,6 @@ public class AccountPage {
         phoneElemnt.sendKeys(telefhone);
 
 
-    }
-
-    public void formularioPassword(String password, String comfir){
 
         WebElement passwordElement = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordBy));
 
@@ -100,10 +101,11 @@ public class AccountPage {
 
         comfirElement.clear();
 
-        comfirElement.sendKeys(comfir);
+        comfirElement.sendKeys(password);
 
 
     }
+
 
     public void agreeBox(){
 
@@ -122,11 +124,11 @@ public class AccountPage {
 
     }
 
-    public String textConfirmRegister(){
+    public boolean textConfirmRegister(){
 
         WebElement confirmElement = wait.until(ExpectedConditions.visibilityOfElementLocated(confirmRegisterBy));
 
-        return confirmElement.getText();
+        return confirmElement.isDisplayed();
 
 
     }

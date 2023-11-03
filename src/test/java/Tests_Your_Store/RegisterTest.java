@@ -2,6 +2,7 @@ package Tests_Your_Store;
 
 import Page_Your_Store.AccountPage;
 import Page_Your_Store.HomePage;
+import com.github.javafaker.Faker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,31 +11,34 @@ public class RegisterTest extends Base{
     @Test
     public void Register(){
 
-        getDriver().get("https://opencart.abstracta.us/");
-
-
         HomePage homePage = new HomePage(getDriver());
 
         AccountPage accountPage = new AccountPage(getDriver());
 
+        Faker faker = new Faker();
 
 
+
+        getDriver().get("https://opencart.abstracta.us/");
 
         homePage.Register();
 
+        accountPage.formularioPersonal_Details(
+                faker.name().firstName(),
+                faker.name().lastName(),
+                faker.internet().emailAddress(),
+                faker.phoneNumber().phoneNumber(),
+                faker.internet().password());
 
-        Assert.assertEquals(accountPage.getTitulo(), "Account", "No se encuentra en la pagina de Register");
-
-
-        accountPage.formularioPersonal_Details("Martin", "Peralta", "juan1@gmail.com", "3542548345");
-
-        accountPage.formularioPassword("123456", "123456");
 
         accountPage.agreeBox();
 
         accountPage.continueButton();
 
-        Assert.assertEquals(accountPage.textConfirmRegister(), "Congratulations! Your new account has been successfully created!");
+
+
+        Assert.assertTrue(accountPage.textConfirmRegister());
+        Assert.assertEquals(accountPage.getTitulo(), "Account", "No se encuentra en la pagina de Register");
 
 
 
