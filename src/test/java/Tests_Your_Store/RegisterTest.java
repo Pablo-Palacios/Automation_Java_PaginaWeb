@@ -1,6 +1,6 @@
 package Tests_Your_Store;
 
-import Page_Your_Store.AccountPage;
+import Page_Your_Store.RegisterPage;
 import Page_Your_Store.HomePage;
 import com.github.javafaker.Faker;
 import org.testng.Assert;
@@ -13,7 +13,7 @@ public class RegisterTest extends Base{
 
         HomePage homePage = new HomePage(getDriver());
 
-        AccountPage accountPage = new AccountPage(getDriver());
+        RegisterPage accountPage = new RegisterPage(getDriver());
 
         Faker faker = new Faker();
 

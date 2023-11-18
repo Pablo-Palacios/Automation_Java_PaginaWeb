@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"Your.Store.stepDefinitions", "Your.Store.Hooks"},
+        glue = {"YourStore.stepDefinitions", "YourStore.Hooks"},
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 

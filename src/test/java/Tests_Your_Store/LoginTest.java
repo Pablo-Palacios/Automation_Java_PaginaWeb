@@ -2,7 +2,7 @@ package Tests_Your_Store;
 
 import Page_Your_Store.HomePage;
 import Page_Your_Store.LoginPage;
-import Page_Your_Store.myAccountPage;
+import Page_Your_Store.MyAccountPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +15,7 @@ public class LoginTest extends Base {
 
         LoginPage loginPage = new LoginPage(getDriver());
 
-        myAccountPage myAccountPage = new myAccountPage(getDriver());
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
 
 
         getDriver().get("https://opencart.abstracta.us/");

@@ -2,17 +2,9 @@ package Page_Your_Store;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class HomePage {
-
-
-
-    public WebDriver driver;
+public class HomePage extends BasePage{
 
     public WebDriverWait wait;
 
@@ -29,42 +21,33 @@ public class HomePage {
 
 
 
-
-
     public HomePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+        super(driver);
     }
 
 
     public String getTitulo() {
-        WebElement tituloElement = wait.until(ExpectedConditions.visibilityOfElementLocated(titulo));
-        return tituloElement.getText();
+
+        return getText(titulo);
+
     }
+
 
     public void ingresarLogin(){
 
+        click(AccountButton);
 
-        WebElement AccountButtonElement  =  wait.until(ExpectedConditions.elementToBeClickable(AccountButton));
-
-        AccountButtonElement.click();
-
-        WebElement AccountLoginElement = wait.until(ExpectedConditions.elementToBeClickable(AccountLogin));
-
-        AccountLoginElement.click();
+        click(AccountLogin);
         
 
     }
 
     public void Register(){
 
-        WebElement AccountButtonElement  =  wait.until(ExpectedConditions.elementToBeClickable(AccountButton));
+        click(AccountButton);
 
-        AccountButtonElement.click();
+        click(registerBy);
 
-        WebElement registerElement = wait.until(ExpectedConditions.elementToBeClickable(registerBy));
-
-        registerElement.click();
 
     }
 

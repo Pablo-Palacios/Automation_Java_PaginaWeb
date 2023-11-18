@@ -6,15 +6,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 public class Hooks {
 
     private static WebDriver driver;
 
+    private static Properties properties;
+
     @Before
-    public void setUp(){
+    public void setUp() throws IOException {
+
+        properties = new Properties();
+
+        properties.load(new FileInputStream(System.getProperty("user.dir")
+        + "\\src\\test\\resources\\config.properties"));
 
         ChromeOptions options = new ChromeOptions();
 
@@ -37,6 +46,12 @@ public class Hooks {
     }
 
 
+
+
+
+    public static String getConfig_Values(String key){
+        return properties.getProperty(key);
+    }
 
     @After
     public void close(){

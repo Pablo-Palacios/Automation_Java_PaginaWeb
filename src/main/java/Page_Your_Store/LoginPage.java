@@ -2,68 +2,73 @@ package Page_Your_Store;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class LoginPage {
+public class LoginPage extends BasePage {
 
 
-    public WebDriver driver;
+    By loginNameBy = By.id("input-email");
 
-    public WebDriverWait wait;
+    By loginPasswordBy = By.id("input-password");
 
+    By loginButtonBy = By.xpath("//input[@class='btn btn-primary']");
 
-    By loginName = By.id("input-email");
-
-    By loginPassword = By.id("input-password");
-
-    By loginButton = By.xpath("//input[@class='btn btn-primary']");
-
-    By alertLogin = By.className("alert-dismissible");
+    By alertLoginBy = By.className("alert-dismissible");
 
     By returningBy = By.xpath("//div[@class='well']/h2[text() = 'Returning Customer']");
 
+    By newCustomerTitleBy = By.xpath("//h2[text()='New Customer']");
+
+    By returningCustomerTitleBy = By.xpath("//h2[text()='Returning Customer']");
 
 
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
+
     }
 
 
     public void usuarioLogin(String username, String password){
 
-        WebElement loginNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(loginName));
+        sendKeys(loginNameBy, username);
+        sendKeys(loginPasswordBy, password);
 
-        loginNameElement.sendKeys(username);
+    }
 
-        WebElement loginPasswordElement = wait.until(ExpectedConditions.visibilityOfElementLocated(loginPassword));
+    public void loginButton(){
 
-        loginPasswordElement.sendKeys(password);
-
-        WebElement loginButtonElement = wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-
-        loginButtonElement.click();
-
-
+        click(loginButtonBy);
 
     }
 
     public boolean alertErrorLogin(){
 
-        WebElement alertElement = wait.until(ExpectedConditions.visibilityOfElementLocated(alertLogin));
-        return alertElement.isDisplayed();
+        return isDisplayed(alertLoginBy);
 
     }
 
     public String tituReturningCust(){
-        WebElement returningElement = wait.until(ExpectedConditions.visibilityOfElementLocated(returningBy));
-        return returningElement.getText();
+
+        return getText(returningBy);
     }
+
+
+
+    public String titleNewCustomer(){
+
+        return getText(newCustomerTitleBy);
+
+    }
+
+
+    public String titleReturningCustomer(){
+
+        return getText(returningCustomerTitleBy);
+
+    }
+
+
+
 
 
 }
