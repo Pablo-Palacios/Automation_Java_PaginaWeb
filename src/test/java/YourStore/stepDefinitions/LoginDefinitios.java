@@ -83,4 +83,15 @@ public class LoginDefinitios {
     public void escribePasswordIncorrecto() {
         loginPage.usuarioLogin("pablomartinpalacios27@gmail.com", "123");
     }
+
+    @Y("se logea correctamente")
+    public void seLogeaCorrectamente() {
+
+        homePage.ingresarLogin();
+        loginPage.usuarioLogin(Hooks.getConfig_Values("username"),
+                Hooks.getConfig_Values("password"));
+
+        loginPage.loginButton();
+
+    }
 }

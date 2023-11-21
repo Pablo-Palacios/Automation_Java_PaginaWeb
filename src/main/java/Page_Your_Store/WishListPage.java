@@ -7,35 +7,27 @@ public class WishListPage extends BasePage {
 
 
 
-
-
-
     public WishListPage(WebDriver driver) {
         super(driver);
     }
 
 
-    private By wishPageBy = By.id("wishlist-total");
 
-    private By macButtonWhisListBy = By.xpath("//button[contains(@onclick, 'wishlist.add('43');')]");
-
-
-    private By iphoneButtonWhisListBy = By.xpath("//button[@onclick='wishlist.add(40);']");
-
-
-    private By alertSuccessWhisIphoneBy = By.xpath("//a[contains(text(), 'iPhone')]");
-
-    private By alertSuccessWhisMacBookBy = By.xpath("//a[contains(text(), 'MacBook')]");
-
-    private By alertAddedWishlistBy = By.xpath("//a[contains(text(), 'wish list')]");
 
 
     private By titleWishListPageBy = By.xpath("//a[contains(text(), 'My Wish List')]");
 
 
-    private By tableWishListBy = By.className("table-responsive");
-
     private By textWishListEmptyBy = By.xpath("//div[@id='content']/p");
+
+    private By wishButtonCameraCanonBy = By.xpath("//button[contains(@onclick, \"wishlist.add('30');\")]");
+
+
+    private By nameWishListCanonBy = By.xpath("//div[@id='account-wishlist']//a[contains(text(), 'Canon EOS 5D')]");
+
+    private By wishListBy = By.id("wishlist-total");
+
+
 
 
 
@@ -50,22 +42,30 @@ public class WishListPage extends BasePage {
         return getText(textWishListEmptyBy);
     }
 
+    public void addCamaraCanonFav(){
 
-    public void addIphoneWishList(){
-
-        click(iphoneButtonWhisListBy);
+        click(wishButtonCameraCanonBy);
     }
 
 
-    public boolean existWishList(){
 
-        return isDisplayed(tableWishListBy);
+    public String nameCamaraCanonWishList(){
+
+        return getText(nameWishListCanonBy);
     }
 
-    public String alertAddedElementWishList(){
 
-        return getText(alertAddedWishlistBy);
+    public void wishListButton(){
+
+        click(wishListBy);
     }
+
+
+
+
+
+
+
 
 
 

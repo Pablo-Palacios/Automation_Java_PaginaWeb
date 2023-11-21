@@ -36,4 +36,11 @@ public class HomeDefinitios {
     }
 
 
+    @Cuando("acciona la seccion de camaras")
+    public void accionaLaSeccionDeCamaras() {
+
+        homePage.cameraSeccion();
+    }
+
+
 }

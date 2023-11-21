@@ -37,7 +37,6 @@ public class RegisterPage extends BasePage {
 
     private By yesSubcritoBy = By.xpath("//label[@class='radio-inline']/input[contains(@value, '1')]");
 
-    private By alertEmailExistenteBy = By.xpath("//div [@class='alert alert-danger alert-dismissible']");
 
     private By continuarButtonAccountBy = By.xpath("//div [@class='pull-right']/a[contains(@href, 'account/account')]");
 

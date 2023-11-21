@@ -2,7 +2,7 @@
 
   Característica: Register
 
-    Escenario: ingreso al register
+    Escenario: ingreso a la seccion register
 
       Dado que el usuario ingresa a la pagina opencart
       Y acciona la opcion my account-register
@@ -10,7 +10,7 @@
 
 
 
-    Escenario: el usuario se registra correctamente
+    Escenario: Usuario completa formulario de ingreso
 
       Dado que el usuario ingresa a la pagina opencart
       Y acciona la opcion my account-register
@@ -20,19 +20,7 @@
 
 
 
-
-    Escenario: el usuario se registra correctamente y si se subscribe
-
-      Dado que el usuario ingresa a la pagina opencart
-      Y acciona la opcion my account-register
-      Cuando el usuario completa todos los campos subscribiendose
-      Entonces se visualiza mensaje de creado correctamente
-      Y se dirige a la pagina myAccount
-
-
-
-
-    Escenario: el usuario deja los campos vacios
+    Escenario: Usuario deja campos vacios formulario
 
       Dado que el usuario ingresa a la pagina opencart
       Y acciona la opcion my account-register

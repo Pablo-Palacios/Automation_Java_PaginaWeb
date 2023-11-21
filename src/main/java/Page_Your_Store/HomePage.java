@@ -10,13 +10,17 @@ public class HomePage extends BasePage{
 
 
 
-    By titulo = By.xpath("//div[@id='logo']/h1/a");
+    private By titulo = By.xpath("//div[@id='logo']/h1/a");
 
-    By AccountButton = By.xpath("//li[@class='dropdown']/a[contains(@href, 'account/account')]");
+    private By AccountButton = By.xpath("//li[@class='dropdown']/a[contains(@href, 'account/account')]");
 
-    By AccountLogin = By.xpath("//a[contains(@href, 'account/login')]");
+    private By AccountLogin = By.xpath("//a[contains(@href, 'account/login')]");
 
-    By registerBy = By.xpath("//a[contains(@href, 'account/register')]");
+    private By registerBy = By.xpath("//a[contains(@href, 'account/register')]");
+
+    private By cameraSeccionBy = By.xpath("//a[contains(@href, 'gory&path=33')]");
+
+    private By cameraCanonBy = By.xpath("//div[@class='product-thumb']//a[contains(text(), 'Canon EOS 5D')]");
 
 
 
@@ -50,6 +54,20 @@ public class HomePage extends BasePage{
 
 
     }
+
+    public void cameraSeccion(){
+
+        click(cameraSeccionBy);
+    }
+
+    public String cameraCanonEOS5D(){
+
+        return getText(cameraCanonBy);
+    }
+
+
+
+
 
 
 
