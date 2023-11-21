@@ -25,8 +25,6 @@ public class ShoppingCartPage extends BasePage {
 
     private By titleShoppingCartBy = By.xpath("//a[contains(text(), 'Shopping Cart')]");
 
-    private By CameraCanonBy = By.xpath("//div[@class='product-thumb']//a[contains(text(), 'Canon EOS 5D')]");
-
 
 
 

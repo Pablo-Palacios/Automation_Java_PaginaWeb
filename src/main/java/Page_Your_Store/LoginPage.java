@@ -14,7 +14,6 @@ public class LoginPage extends BasePage {
 
     By alertLoginBy = By.className("alert-dismissible");
 
-    By returningBy = By.xpath("//div[@class='well']/h2[text() = 'Returning Customer']");
 
     By newCustomerTitleBy = By.xpath("//h2[text()='New Customer']");
 
@@ -45,11 +44,6 @@ public class LoginPage extends BasePage {
 
         return isDisplayed(alertLoginBy);
 
-    }
-
-    public String tituReturningCust(){
-
-        return getText(returningBy);
     }
 
 

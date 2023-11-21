@@ -2,11 +2,8 @@ package Page_Your_Store;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage{
-
-    public WebDriverWait wait;
 
 
 
@@ -20,7 +17,7 @@ public class HomePage extends BasePage{
 
     private By cameraSeccionBy = By.xpath("//a[contains(@href, 'gory&path=33')]");
 
-    private By cameraCanonBy = By.xpath("//div[@class='product-thumb']//a[contains(text(), 'Canon EOS 5D')]");
+
 
 
 
@@ -60,10 +57,7 @@ public class HomePage extends BasePage{
         click(cameraSeccionBy);
     }
 
-    public String cameraCanonEOS5D(){
 
-        return getText(cameraCanonBy);
-    }
 
 
 

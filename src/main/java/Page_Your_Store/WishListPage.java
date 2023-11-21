@@ -18,8 +18,6 @@ public class WishListPage extends BasePage {
     private By titleWishListPageBy = By.xpath("//a[contains(text(), 'My Wish List')]");
 
 
-    private By textWishListEmptyBy = By.xpath("//div[@id='content']/p");
-
     private By wishButtonCameraCanonBy = By.xpath("//button[contains(@onclick, \"wishlist.add('30');\")]");
 
 
@@ -37,10 +35,6 @@ public class WishListPage extends BasePage {
     }
 
 
-    public String textEmptyList(){
-
-        return getText(textWishListEmptyBy);
-    }
 
     public void addCamaraCanonFav(){
 
